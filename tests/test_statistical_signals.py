@@ -6,7 +6,7 @@ class TestStatisticalSignals(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.df = pd.read_csv("data/transactions.csv")
+        cls.df = pd.read_csv("data/fraud.csv")
 
     def test_benford_distribution(self):
         amounts = self.df["transaction_amount"].dropna().astype(str)

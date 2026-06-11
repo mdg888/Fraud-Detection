@@ -10,7 +10,7 @@ class TestPseudoLabels(unittest.TestCase):
     def setUpClass(cls):
         # Load transaction dataset once for all test cases
         # This avoids reloading data for every individual test (improves efficiency)
-        cls.df = pd.read_csv("data/transactions.csv")
+        cls.df = pd.read_csv("data/fraud.csv")
 
     def test_label_length(self):
         # Test that pseudo-label generation produces exactly one label per transaction

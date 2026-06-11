@@ -10,7 +10,7 @@ class TestAnomalyModels(unittest.TestCase):
     def setUpClass(cls):
         # Load dataset once
         # This simulates real transaction data used for fraud detection
-        cls.df = pd.read_csv("data/transactions.csv")
+        cls.df = pd.read_csv("data/fraud.csv")
 
     def test_isolation_forest_executes(self):
         # ---------------------------------------------
@@ -19,8 +19,8 @@ class TestAnomalyModels(unittest.TestCase):
         # ---------------------------------------------
 
         # Select only numerical features for anomaly detection
-        # (simplified fraud signal using transaction amount)
-        X = self.df[["amount"]].fillna(0)
+        # (simplified fraud signal using transaction transaction_transaction_amount)
+        X = self.df[["transaction_amount"]].fillna(0)
 
         # Initialise Isolation Forest
         # contamination = expected proportion of fraud/anomalies
@@ -42,7 +42,7 @@ class TestAnomalyModels(unittest.TestCase):
         # Ensure model outputs valid numeric scores
         # ---------------------------------------------
 
-        X = self.df[["amount"]].fillna(0)
+        X = self.df[["transaction_amount"]].fillna(0)
 
         model = IsolationForest(random_state=42)
         model.fit(X)
@@ -62,7 +62,7 @@ class TestAnomalyModels(unittest.TestCase):
         # If all scores are similar → model is useless for fraud detection
         # ---------------------------------------------
 
-        X = self.df[["amount"]].fillna(0)
+        X = self.df[["transaction_amount"]].fillna(0)
 
         model = IsolationForest(random_state=42)
         model.fit(X)

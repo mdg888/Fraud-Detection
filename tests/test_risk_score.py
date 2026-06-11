@@ -12,7 +12,7 @@ class TestRiskEngine(unittest.TestCase):
     def setUpClass(cls):
         # Load the transaction dataset once for all tests in this class
         # This improves efficiency by avoiding repeated file I/O operations
-        cls.df = pd.read_csv("data/transactions.csv")
+        cls.df = pd.read_csv("data/fraud.csv")
 
     def test_score_bounds(self):
         # Test that all computed fraud risk scores are properly normalised
@@ -48,13 +48,13 @@ class TestRiskEngine(unittest.TestCase):
     def test_score_balance_0(self):
         scores = compute_percentage_fraud(self.df)
         
-        self.assertNotEquals(scores,1,'Impossible for this to occur!')
+        self.assertNotEqual(scores, 1, 'Impossible for this to occur!')
 
     
     def test_score_balance_100(self):
         scores = compute_percentage_fraud(self.df)
         
-        self.assertNotEquals(scores,0,'Impossible for this to occur!')
+        self.assertNotEqual(scores, 0, 'Impossible for this to occur!')
 
 
 if __name__ == "__main__":

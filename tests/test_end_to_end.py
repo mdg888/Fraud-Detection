@@ -12,7 +12,7 @@ class TestEndToEndPipeline(unittest.TestCase):
     def setUpClass(cls):
         # Load raw transaction data once for all tests
         # This simulates real-world input as it would arrive in production
-        cls.df = pd.read_csv("data/transactions.csv")
+        cls.df = pd.read_csv("data/fraud.csv")
 
     def test_pipeline_executes_without_errors(self):
         # ---------------------------------------------
